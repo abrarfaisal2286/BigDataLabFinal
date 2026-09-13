@@ -1,0 +1,17 @@
+# Compiled output
+classes/
+*.class
+*.jar
+
+# Hadoop local-mode artifacts
+*.crc
+_SUCCESS
+
+# Raw datasets (too large to version-control — see data/README.md)
+*.csv
+!output/*.csv
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+*.swp
