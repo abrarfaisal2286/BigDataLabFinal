@@ -31,13 +31,20 @@ parser used by all three jobs (handles commas/quotes embedded inside
 ### Compiling and running
 
 ```
-javac -classpath $(hadoop classpath) -d classes java-src/CsvUtils.java java-src/RatingHistogram.java java-src/AvgRatingByYear.java java-src/BookReviewJoin.java
-jar -cvf lab3.jar -C classes .
+javac -classpath $(hadoop classpath) -d classes java-src/CsvUtils.java java-src/RatingHistogram.java
+jar -cvf rating-histogram.jar -C classes .
+hadoop jar rating-histogram.jar RatingHistogram /lab/input/reviews_100k.csv /lab/output/task1
 
-hadoop jar lab3.jar RatingHistogram   /lab/input/reviews_100k.csv /lab/output/task1
-hadoop jar lab3.jar AvgRatingByYear   /lab/input/books.csv        /lab/output/task2
-hadoop jar lab3.jar BookReviewJoin    /lab/input/books.csv /lab/input/reviews_100k.csv /lab/output/task3
+javac -classpath $(hadoop classpath) -d classes java-src/CsvUtils.java java-src/AvgRatingByYear.java
+jar -cvf avg-rating-by-year.jar -C classes .
+hadoop jar avg-rating-by-year.jar AvgRatingByYear /lab/input/books.csv /lab/output/task2
+
+javac -classpath $(hadoop classpath) -d classes java-src/CsvUtils.java java-src/BookReviewJoin.java
+jar -cvf book-review-join.jar -C classes .
+hadoop jar book-review-join.jar BookReviewJoin /lab/input/books.csv /lab/input/reviews_100k.csv /lab/output/task3
 ```
+
+Each task is packaged as its own jar (rating-histogram.jar, avg-rating-by-year.jar, book-review-join.jar) rather than one combined jar.
 
 ## Pig Tasks (`pig-scripts/`)
 
