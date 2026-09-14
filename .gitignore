@@ -15,3 +15,5 @@ _SUCCESS
 .DS_Store
 Thumbs.db
 *.swp
+desktop.ini
+pig_output/
