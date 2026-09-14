@@ -1,4 +1,4 @@
-# CSE 4346 — Big Data Lab 3: Goodreads Books & Reviews Analysis
+# CSE 4346 — BigDataLabFinal: Goodreads Books & Reviews Analysis
 
 Hadoop MapReduce (Java) and Apache Pig analysis of a Goodreads-style
 book catalog (`books.csv`) and a 100,000-row sample of user reviews
